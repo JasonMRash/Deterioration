@@ -5,6 +5,7 @@
  * Description: Implementation for Camp class that inherits from Space class.
 ******************************************************************************/
 #include "camp.hpp"
+#include "menu.hpp"
 
 /******************************************************************************
  * Description: Camp class default constructor.
@@ -48,6 +49,9 @@ std::shared_ptr<Item> Camp::examineItem(int choice)
         rockString += "Are you sure you want to pick up the rock ?\n";
         rockString += "1. Yes\n2. No\n";
         int takeRock = getPositiveInt(1, 2, rockString);
+
+        clearScreen();
+
         if (takeRock == 1)
         {
             std::shared_ptr<Item> takeItem = spaceItems[choice - 1];
@@ -66,6 +70,9 @@ std::shared_ptr<Item> Camp::examineItem(int choice)
     {
         std::string takeStr = "Put Item in inventory?\n1. Yes\n2. No\n";
         int takeItem = getPositiveInt(1, 2, takeStr);
+
+        clearScreen();
+
         if (takeItem == 1)
         {
             std::shared_ptr<Item> takeItem = this->spaceItems[choice - 1];
@@ -90,6 +97,8 @@ void Camp::specialAction()
     specialStr += "1. Yes\n2. No\n";
     int special = getPositiveInt(1, 2, specialStr);
     
+    clearScreen();
+
     if (special == 1)
     {
         std::cout << "You walk beside the river and take in the scenery.\n"

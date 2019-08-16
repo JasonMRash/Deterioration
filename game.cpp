@@ -6,6 +6,7 @@
 ******************************************************************************/
 
 #include "game.hpp"
+#include "menu.hpp"
 
 /******************************************************************************
  * Description: Game class default constructor.
@@ -63,6 +64,8 @@ void Game::createSpaces()
     dirt.linkSpaces(&river, &bunker, nullptr, nullptr);
     bunker.linkSpaces(&dirt, nullptr, nullptr, nullptr);
     currentSpace = &home;
+
+    clearScreen();
     gameIntro();
     startGame();
 }
@@ -95,7 +98,7 @@ void Game::startGame()
         {
             currentSpace->specialAction();
             bool searchSpace = true;
-            while (searchSpace && !currentSpace->spaceItemsIsEmpty())
+            while (searchSpace)
             {
                 int itemChoice = currentSpace->searchSpace();
                 if (itemChoice == 0)
@@ -116,8 +119,8 @@ void Game::startGame()
                     }
                 }
             }
-            displayMap();
             movePlayer();
+            clearScreen();
         }
         else
         {
@@ -131,10 +134,12 @@ void Game::movePlayer()
     bool validMove = false;
     while (!validMove)
     {
-        std::string moveStr = "Which way would you like to move?\n";
-        moveStr += "You are currently at " + currentSpace->getName() + ".\n";
-        moveStr += "1. Move Up\t2. Move Down\n";
-        moveStr += "3. Move Left\t4. Move Right\n";
+        displayMap();
+
+        std::string moveStr = "Which way would you like to move?\n\n";
+        moveStr += "You are currently at " + currentSpace->getName() + ".\n\n";
+        moveStr += "1. Move Up\n2. Move Down\n";
+        moveStr += "3. Move Left\n4. Move Right\n";
 
         int move = getPositiveInt(1, 4, moveStr);
 
@@ -149,7 +154,8 @@ void Game::movePlayer()
             }
             else
             {
-                std::cout << "Cannot move Up.  Chose another direction.\n";
+                clearScreen();
+                std::cout << "Cannot move Up. Chose another direction.\n\n";
             }
         }
         else if (move == 2)
@@ -163,7 +169,8 @@ void Game::movePlayer()
             }
             else
             {
-                std::cout << "Cannot move Down.  Chose another direction.\n";
+                clearScreen();
+                std::cout << "Cannot move Down. Chose another direction.\n\n";
             }
         }
         else if (move == 3)
@@ -177,7 +184,8 @@ void Game::movePlayer()
             }
             else
             {
-                std::cout << "Cannot move Left.  Chose another direction.\n";
+                clearScreen();
+                std::cout << "Cannot move Left. Chose another direction.\n\n";
             }
         }
         else
@@ -191,7 +199,8 @@ void Game::movePlayer()
             }
             else
             {
-                std::cout << "Cannot move Right.  Chose another direction.\n";
+                clearScreen();
+                std::cout << "Cannot move Right. Chose another direction.\n\n";
             }
         }
     }
@@ -235,6 +244,12 @@ void Game::checkEndGame()
     {
         if (player->inInventory("Key Card"))
         {
+            std::cout << "     ___________\n"
+                      << "    /     _     \\\n"
+                      << "   /     |X|     \\\n"
+                      << "  /      |X|      \\\n"
+                      << " /_______|X|_______\\\n\n";
+
             std::cout << "You use the Key Card to open up the Bunker.\n"
                 << "You find a massive stockpile of food, water, and medical\n"
                 << "supplies to cure you of your radiation poisoning.\n\n"

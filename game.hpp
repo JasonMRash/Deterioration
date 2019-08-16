@@ -8,7 +8,6 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include "menu.hpp"
 #include "validation.hpp"
 #include "space.hpp"
 #include "house.hpp"

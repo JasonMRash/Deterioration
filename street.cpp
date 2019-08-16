@@ -5,6 +5,7 @@
  * Description: Implementation for Street class that inherits from Space class.
 ******************************************************************************/
 #include "street.hpp"
+#include "menu.hpp"
 
 /******************************************************************************
  * Description: Street class default constructor.
@@ -47,6 +48,8 @@ void Street::specialAction()
     std::string lookStr = "Would you like to walk down the street?\n";
     lookStr += "1. Yes\n2. No\n";
     int lookChoice = getPositiveInt(1, 2, lookStr);
+
+    clearScreen();
 
     if (lookChoice == 1)
     {

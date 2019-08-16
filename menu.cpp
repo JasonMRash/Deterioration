@@ -23,6 +23,7 @@ void displayMainMenu()
         if (selection == "1")
         {
             Game game;
+            clearScreen();
             game.createSpaces();
         }
         else if (selection != "2")
@@ -30,4 +31,9 @@ void displayMainMenu()
             std::cout << "Please choose option 1 or 2.\n";
         }
     }
+}
+
+void clearScreen()
+{
+    std::cout << std::string(100, '\n');
 }

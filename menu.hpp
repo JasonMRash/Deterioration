@@ -14,5 +14,6 @@
 
 
     void displayMainMenu();
+    void clearScreen();
 
 #endif
