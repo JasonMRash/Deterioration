@@ -5,6 +5,7 @@
  * Description: Implementation for Bunker class that inherits from Space class.
 ******************************************************************************/
 #include "bunker.hpp"
+#include "menu.hpp"
 
 /******************************************************************************
  * Description: Bunker class default constructor.
@@ -43,6 +44,8 @@ void Bunker::specialAction()
     std::string walkStr = "Would you like to walk around the bunker?\n";
     walkStr += "1. Yes\n2. No\n";
     int bunkerChoice = getPositiveInt(1, 2, walkStr);
+
+    clearScreen();
 
     if (bunkerChoice == 1)
     {

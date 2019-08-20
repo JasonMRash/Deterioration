@@ -5,6 +5,7 @@
  * Description: Implementation for House class that inherits from Space class.
 ******************************************************************************/
 #include "house.hpp"
+#include "menu.hpp"
 
 /******************************************************************************
  * Description: House class default constructor.
@@ -56,6 +57,9 @@ std::shared_ptr<Item> House::examineItem(int choice)
         takeStr += "1. Yes (put map in inventory)\n";
         takeStr += "2. No (drop map on ground)\n";
         int takeMap = getPositiveInt(1, 2, takeStr);
+
+        clearScreen();
+
         if (takeMap == 1)
         {
             std::shared_ptr<Item> takeItem = this->spaceItems.back();
@@ -73,6 +77,9 @@ std::shared_ptr<Item> House::examineItem(int choice)
     {
         std::string takeStr = "Put item in inventory?\n1. Yes\n2. No\n";
         int takeItem = getPositiveInt(1, 2, takeStr);
+
+        clearScreen();
+
         if (takeItem == 1)
         {
             std::shared_ptr<Item> takeItem = this->spaceItems[choice - 1];
@@ -96,6 +103,8 @@ void House::specialAction()
     std::string cStr = "Would you like to tour the house?\n1. Yes\n2. No\n";
     int choice = getPositiveInt(1, 2, cStr);
     
+    clearScreen();
+
     if (choice == 1)
     {
         if (this->getName() == "Your Home")

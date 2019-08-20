@@ -7,6 +7,7 @@
 ******************************************************************************/
 
 #include "space.hpp"
+#include "menu.hpp"
 
 /******************************************************************************
  * Description: Space class default constructor.
@@ -147,6 +148,9 @@ int Space::searchSpace()
     std::string searchStr = "Would you like to search the area for items?\n";
     searchStr += "1. Yes\n2. No\n";
     int searchChoice = getPositiveInt(1, 2, searchStr);
+
+    clearScreen();
+
     if (searchChoice == 1)
     {
         if (spaceItems.size() > 0)
@@ -159,6 +163,8 @@ int Space::searchSpace()
             }
             int choice = getPositiveInt(1, spaceItems.size(),
                 "Choose an item to examine: ");
+
+            clearScreen();
 
             return choice;
 
@@ -183,9 +189,11 @@ int Space::searchSpace()
                 and pushes that created Item object to the back of the
                 spaceItems vector.
 ******************************************************************************/
-void Space::addItem(std::string m_name, std::string desc, int radRes, int radLvl)
+void Space::addItem(std::string m_name, std::string desc, int radRes, 
+    int radLvl)
 {
-    std::shared_ptr<Item> createItem = std::make_shared<Item>(m_name, desc, radRes, radLvl);
+    std::shared_ptr<Item> createItem = 
+        std::make_shared<Item>(m_name, desc, radRes, radLvl);
     spaceItems.push_back(createItem);
 }
 

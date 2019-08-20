@@ -12,6 +12,7 @@
 int main()
 {
     srand(time(NULL));
+    clearScreen();
     std::cout << "DETERIORATION\n"
         << "by Jason Rash.\n\n";
     displayMainMenu();

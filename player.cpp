@@ -5,6 +5,7 @@
  * Description: Implementation for Player class.
 ******************************************************************************/
 #include "player.hpp"
+#include "menu.hpp"
 
 /******************************************************************************
  * Description: Player class default constructor.
@@ -62,6 +63,7 @@ void Player::checkRadiationStatus()
     {
         std::cout << "You are dangerously close to dying.\n";
         consumeItem();
+        clearScreen();
     }
 }
 
@@ -86,7 +88,7 @@ void Player::addItemToInventory(std::shared_ptr<Item> newItem)
             }
             else
             {
-                std::cout << "Useable inventory full.  Cannot add item.\n";
+                std::cout << "Useable inventory full.  Cannot add item.\n\n";
             }
         }
         else
