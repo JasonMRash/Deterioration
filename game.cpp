@@ -45,22 +45,32 @@ void Game::createSpaces()
     jimmy.addItem("Rain Coat", "Increases radiation resistance.(+10% resist)"
         , 10, 0);
     jimmy.addItem("Key Card", "Looks like a Key for something.", 0, 0);
-    jimmy.addItem("First Aid Kit", "Reduces radiation poisoning by 25 (-25%)."
-        , 0, -25);
+    jimmy.addItem("Avocado", "Reduces radiation poisoning by 75 (-75 %).",
+		0, -75);
+
     Camp river("Riverside Camp", "A dilapidated campground.", 15);
     river.addItem("Compass", "Should help point you where to go", 0, 0);
     river.addItem("Glowing Rock", "A bright neon orange rock. (-50% resist)",
         -50, 0);
     river.addItem("First Aid Kit", "Reduces radiation poisoning by 25 (-25%)."
         , 0, -25);
+
+	Camp west("Westside Trailer Park", "Glaming at its finest.", 15);
+	west.addItem("Motorcycle Helmet", "Increases radiation resistance.(+5% resist)",
+		5, 0);
+	west.addItem("First Aid Kit", "Reduces radiation poisoning by 25 (-25%).",
+		0, -25);
+
     Street mainS("Main Street", "Main Street Circleville,KS. Pop 163", 20);
     Street dirt("Dirt Road", "The Long and Winding Road.", 15);
     Bunker bunker("Bunker", "A tightly sealed radiation proof bunker.", 0);
+
     home.linkSpaces(&mainS, nullptr, nullptr, nullptr);
     doug.linkSpaces(nullptr, &mainS, nullptr, nullptr);
     jimmy.linkSpaces(nullptr, nullptr, &river, nullptr);
     river.linkSpaces(nullptr, &dirt, &mainS, &jimmy);
-    mainS.linkSpaces(&doug, &home, nullptr, &river);
+	west.linkSpaces(nullptr, nullptr, nullptr, &mainS);
+    mainS.linkSpaces(&doug, &home, &west, &river);
     dirt.linkSpaces(&river, &bunker, nullptr, nullptr);
     bunker.linkSpaces(&dirt, nullptr, nullptr, nullptr);
     currentSpace = &home;
@@ -210,21 +220,21 @@ void Game::displayMap()
 {   
     if (!bunkerFound)
     {
-        std::cout << "Doug's House\n"
-            << "     |\n"
-            << "Main Street----Riverside Camp----Jimmy's House\n"
-            << "     |               |\n"
-            << "Your House       Dirt Road\n\n";
+        std::cout << "                  Doug's House\n"
+                  << "                        |\n"
+                  << "Westside Trailer----Main Street----Riverside Camp----Jimmy's House\n"
+                  << "      Park              |               |\n"
+                  << "                   Your House       Dirt Road\n\n";
     }
     else
     {
-        std::cout << "Doug's House\n"
-            << "     |\n"
-            << "Main Street----Riverside Camp----Jimmy's House\n"
-            << "     |               |\n"
-            << "Your House       Dirt Road\n"
-            << "                     |\n"
-            << "                   BUNKER\n\n";
+        std::cout << "                  Doug's House\n"
+                  << "                        |\n"
+                  << "Westside Trailer----Main Street----Riverside Camp----Jimmy's House\n"
+                  << "      Park              |               |\n"
+                  << "                   Your House       Dirt Road\n"
+                  << "                                        |\n"
+                  << "                                    BUNKER\n\n";
     }
 }
 

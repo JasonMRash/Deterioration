@@ -101,10 +101,22 @@ void Camp::specialAction()
 
     if (special == 1)
     {
-        std::cout << "You walk beside the river and take in the scenery.\n"
-            << "You remember playing at this river as a child.  It doesn't\n"
-            << "look like anyone will be playing here for a long time.\n"
-            << "The river is now devoid of all life.\n"
-            << "Fish, Frogs, Bugs, everything wiped out.\n\n";
+		if (this->getName() == "Riverside Camp")
+		{
+			std::cout << "You walk beside the river and take in the scenery.\n"
+				<< "You remember playing at this river as a child.  It doesn't\n"
+				<< "look like anyone will be playing here for a long time.\n"
+				<< "The river is now devoid of all life.\n"
+				<< "Fish, Frogs, Bugs, everything wiped out.\n\n";
+		}
+		else if (this->getName() == "Westside Trailer Park")
+		{
+			std::cout << "You walk through the trailer park and take in the scenery.\n"
+				<< "Your friend Doug grew up here, so you remember playing here a lot.\n"
+				<< "The trailer parks currently is uninhabitable.  A few water lines \n"
+				<< "were sheared off when the trailer in those spots ripped off their \n"
+				<< "foundations during the atomic blast wave.  Water has flooded the \n"
+				<< "entire area.  It doesn't look like there were any survivors\n\n";
+		}
     }
 }
