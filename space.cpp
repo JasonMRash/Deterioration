@@ -75,6 +75,7 @@ int Space::getRadiationLevel()
 ******************************************************************************/
 void Space::enterSpace()
 {
+    asciiArt();
     std::cout << "You go to " << name << ".  " << description << "\n";
 }
 
@@ -196,5 +197,3 @@ void Space::addItem(std::string m_name, std::string desc, int radRes,
         std::make_shared<Item>(m_name, desc, radRes, radLvl);
     spaceItems.push_back(createItem);
 }
-
-

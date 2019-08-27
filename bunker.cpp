@@ -54,3 +54,11 @@ void Bunker::specialAction()
             << "cold war.  A Key Card is required to get in the bunker.\n\n";
     }
 }
+
+void Bunker::asciiArt()
+{
+    std::cout << "    ___________\n"
+              << "   /     _      \\\n"
+              << "  /     |X|      \\\n"
+              << " /______|X|_______\\\n\n";
+}

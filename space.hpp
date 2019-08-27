@@ -45,6 +45,7 @@ public:
     void addItem(std::string, std::string, int, int);
     virtual std::shared_ptr<Item> examineItem(int) = 0; // pure virtual
     virtual void specialAction() = 0; // pure virtual
+    virtual void asciiArt() = 0; // pure virtual
 };
 
 #endif

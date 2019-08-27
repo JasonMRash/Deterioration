@@ -120,3 +120,25 @@ void Camp::specialAction()
 		}
     }
 }
+
+void Camp::asciiArt()
+{
+    if (this->getName() == "Riverside Camp")
+    {
+        std::cout << "       (   (\n"
+                  << "        )   )\n"
+                  << "       (   (\n"
+                  << "  _     )   )\n"
+                  << " / \\   (   (\n"
+                  << "/ ^ \\   )   )\n\n";
+    }
+
+    else if (this->getName() == "Westside Trailer Park")
+    {
+        std::cout << "  ____   ----------\n"
+                  << " /   /|  |WESTSIDE|\n"
+                  << "/___/^|  ----------\n"
+                  << "|   |v/      ||\n"
+                  << "|___|/       ||\n\n";
+    }
+}

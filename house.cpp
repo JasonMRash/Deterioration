@@ -133,4 +133,22 @@ void House::specialAction()
     }
 }
 
+void House::asciiArt()
+{
+    if (this->getName() == "Your Home")
+    {
+        std::cout << "  / \\\n"
+                  << " /   \\\n"
+                  << "/_____\\\n"
+                  << "|  _  |\n"
+                  << "| |x| |\n"
+                  << "| |x| |\n\n";
+    }
+
+    else if (this->getName() == "Doug's House")
+    {
+
+    }
+}
+
 

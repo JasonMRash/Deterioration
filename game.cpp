@@ -246,7 +246,7 @@ void Game::checkEndGame()
             << "taken its toll on your body.Your breathing gets shallow. You\n"
             << "look up into the yellow-orange sky above and contemplate if\n"
             << "humanity will survive.  You take one last breath and close\n"
-            << "your eyes.\n\n."
+            << "your eyes.\n\n"
             << "THE END\n\n";
         runGame = false;
     }
@@ -254,12 +254,6 @@ void Game::checkEndGame()
     {
         if (player->inInventory("Key Card"))
         {
-            std::cout << "     ___________\n"
-                      << "    /     _     \\\n"
-                      << "   /     |X|     \\\n"
-                      << "  /      |X|      \\\n"
-                      << " /_______|X|_______\\\n\n";
-
             std::cout << "You use the Key Card to open up the Bunker.\n"
                 << "You find a massive stockpile of food, water, and medical\n"
                 << "supplies to cure you of your radiation poisoning.\n\n"

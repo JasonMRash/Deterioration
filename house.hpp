@@ -21,6 +21,7 @@ public:
     House(std::string, std::string, int);
     std::shared_ptr<Item> examineItem(int);
     void specialAction();
+    void asciiArt();
 };
 
 #endif
