@@ -2,6 +2,8 @@
 
 A text based survival game where your goal is to find a cold war era bunker to survive.  Every move you make increases your radiation poisoning.  If you get to 100% radiation poisoning you die.
 
+C++ console application created using Object Oriented Programming concepts of Inheritance, Encapsulation and Polymorphism.
+
 Requires g++ compiler & GNU make to compile.  Typing make will compile the program.
 
 V1.0 - Created in 1 week for the Final Project for intro CS class.
