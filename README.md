@@ -1,5 +1,9 @@
  # Deterioration
 
+https://repl.it/@JasonMRash/Deterioration
+
+NOTE: Game takes a few minutes to start once you click run on repl.it page.  Widen out repl.it terminal when playing game.
+
 A text based survival game where your goal is to find a cold war era bunker to survive.  Every move you make increases your radiation poisoning.  If you get to 100% radiation poisoning you die.
 
 C++ console application created using Object Oriented Programming concepts of Inheritance, Encapsulation and Polymorphism.
