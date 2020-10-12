@@ -10,7 +10,7 @@ C++ console application created using Object Oriented Programming concepts of In
 
 Requires g++ compiler & GNU make to compile.  Typing make will compile the program.
 
-V1.0 - Created in 1 week for the Final Project for intro CS class.
+V1.0 - Created in 1 week for Final Project.
 
 V1.1 - Made the game text easier to read by getting rid of old text on the screen, so the player does not have to figure out where the game left off after inputting a choice.
 
